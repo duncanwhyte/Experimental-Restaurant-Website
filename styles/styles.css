@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Alegreya:wght@400;500;700;900&display=swap');
+
+
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    /* border: solid red 1px; */
+}
+body {
+    font-family: 'Alegreya', serif;
+    color: white;
+}
+.backdrop {
+    min-height: 100vh;
+    min-width: 100vw;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 99;
+    display: none;
+}
+/* HEADER SECTION */
+.header {
+    padding: 1rem;
+    background-color: black;
+    grid-area: header;
+}
+header::after {
+    content: "";
+    position: absolute;
+    background-color: black;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    max-width: 100%;
+    max-height: 23rem;
+    transform: skewY(-7deg);
+    z-index: 2;
+
+}
+/* NAVIGATION HEADER SECTION */
+.header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 10;
+}
+.brand-container {
+    display: flex;
+    align-items: center;
+}
+.brand-name {
+    margin-left: 2rem;
+    font-size: 1.5rem;
+}
+.main-logo {
+    max-width: 4rem;
+    max-height: 4.5rem;
+    border-radius: 50%;
+}
+.desktop-list {
+    display: flex;
+    list-style: none;
+    color: white;
+}
+.desktop-links {
+    margin: 0 1rem;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.hamburger-button__container {
+    display: none;
+}
+/* HERO SECTION */
+.hero-section {
+    background: url("../images/hero-section__background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 45rem;
+    overflow: auto;
+}
+.hero-section__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem auto;
+    z-index: 5;
+    position: relative;
+}
+.hero-section__title {
+    font-size: 4.5rem;
+}
+/* IMAGE GALLERY SECTION */
+.image-grid__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto 18rem 18rem;
+    grid-template-areas: "title title title"
+                         "pasta pizza-board fettuccine"
+                         "spaghetti pizza-board sandwich";
+    gap: 10px;
+    padding: 2rem;
+    color: black;
+}
+.image-gallery__title {
+    grid-area: title;
+    margin: 0 auto;
+    font-size: 3.5rem;
+}
+.pasta-image__container {
+    grid-area: pasta;
+}
+.pizza-image__container {
+    grid-area: pizza-board;
+}
+.fettuccine-image__container {
+    grid-area: fettuccine;
+}
+.spaghetti-image__container {
+    grid-area: spaghetti;
+}
+.sandwich-image__container {
+    grid-area: sandwich;
+}
+.grid-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+}
+.footer {
+    background-color: green;
+    grid-area: footer;
+}
+
+/* MOBILE RESPONSIVE MEDIA QUERIES */
+@media (max-width: 425px) {
+    .desktop-links {
+        display: none;
+    }
+    /* MOBILE HEADER SECTION */
+    .brand-name {
+        font-size: 1.5rem;
+        margin-left: 1rem;
+    }
+    .hamburger-button__container {
+        display: block;
+    }
+    .hamburger-button {
+        font-size: 1.4rem;
+    }
+    /* MOBILE HERO-SECTION */
+    .hero-section__title {
+        font-size: 3rem;
+    }
+    /* IMAGE GALLERY SECTION */
+    .image-grid__container {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "title"
+                             "pasta"
+                             "pizza-board"
+                             "fettuccine"
+                             "spaghetti"
+                             "sandwich";
+        justify-content: center;
+    }
+}
+@media (max-width: 768px) {
+    .image-grid__container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: "title title"
+                             "pasta pizza-board"
+                             "fettuccine pizza-board"
+                             "spaghetti sandwich";
+    }
+
+}
